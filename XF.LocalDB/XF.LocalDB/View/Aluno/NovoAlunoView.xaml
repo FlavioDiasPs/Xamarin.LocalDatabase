@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.LocalDB.View.Aluno.NovoAlunoView"
+             Title="Aluno">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" x:Name="btnSalvar" Command="{Binding OnAdicionarAlunoCMD}" 
+                     CommandParameter="{Binding BindingContext, Source={x:Reference Name=rootAluno}}" Order="Primary" Priority="1" />
+        <ToolbarItem Text="Cancelar" x:Name="btnCancelar" Command="{Binding OnSairCMD}" Order="Primary" Priority="2" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout x:Name="rootAluno" Padding="7" BindingContext="{Binding Selecionado}">
+            <Entry x:Name="txtNome" Placeholder="Nome" Text="{Binding Nome}" />
+            <Entry x:Name="txtRM" Placeholder="RM" Text="{Binding RM}" />
+            <Entry x:Name="txtEmail" Placeholder="E-mail" Text="{Binding Email}" />
+            <TableView>
+                <TableView.Root>
+                    <TableSection>
+                        <SwitchCell Text="Aprovado?" On="{Binding Aprovado}" />
+                    </TableSection>
+                </TableView.Root>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
